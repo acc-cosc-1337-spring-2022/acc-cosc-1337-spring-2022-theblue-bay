@@ -1,13 +1,18 @@
 #include "expressions.h"
 
-//example
-int add_numbers(int num1, int num2)
+double getSalesTaxAmount(double mealAmount)
 {
-	return num1 + num2;
+	double taxRate = .0675;
+	return mealAmount * taxRate;
 }
 
-//write code for multiply_numbers function here
-//function returns product of num1 and num2
+double getTipAmount(double mealAmount, double tipRate)
+{
+	return mealAmount * tipRate;
+}
+
+
+
 
 
 
