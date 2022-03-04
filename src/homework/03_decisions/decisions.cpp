@@ -1,39 +1,52 @@
+#include <string>
 #include "decisions.h"
 
-int get_grade_points(std::string letter_grade)
 {
-	if (letter_grade == "A") 
-	{
-		return 4;
-	}
-	else if(letter_grade == "B") 
-	{
-		return 3;
-	}
-	else if (letter_grade == "C")
-	{
-		return 2;
-	}
-	else if (letter_grade == "D")
-	{
-		return 1;
-	}
-	else if (letter_grade == "F")
-	{
-		return 0;
-	}
-	else 
-	{
-		return -1;
-	}
-}
+	string letterGrade;
 
+	if (grade < 90 && grade >= 80)
+	{
+		letterGrade = "B";
+	}
+	else if (grade < 80 && grade >= 70)
+		letterGrade = "C";
+	else if (grade < 70 && grade >= 60)
+		letterGrade = "D";
+	else if (grade < 60)
+		letterGrade = "F";
 
-//Write code for function calculate_gpa that accepts an int named credit_hours and
-//a double named credit_points.  The function returns the quotient of credit_points divided by
-//credit_hours. In the function account for division by zero by returning a -1.
-double calculate_gpa(int credit_hours, double credit_points)
+	else letterGrade = "A";
+	
+
+	return letterGrade;
+};
+
+string getLetterGradeUsingSwitch(int grade)
 {
-	return credit_points / credit_hours;
-}
-
+	string letterGrade;
+	
+	switch(grade/10)
+	{
+		case 10 :
+			letterGrade = "A";
+			break;
+		case 9 :
+			letterGrade = "A";
+			break;
+		case 8 :
+			letterGrade = "B";
+			break;
+		case 7 :
+			letterGrade = "C";
+			break;
+		case 6 :
+			letterGrade = "D";
+			break;
+		case 5 :
+			letterGrade = "F";
+			break;
+		default:
+			letterGrade = "F";
+	return letterGrade;
+	};
+};
