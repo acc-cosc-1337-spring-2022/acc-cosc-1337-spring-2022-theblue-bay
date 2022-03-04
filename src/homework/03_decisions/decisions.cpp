@@ -1,8 +1,6 @@
 #include <string>
 #include "decisions.h"
-using namespace std;
 
-string getLetterGradeUsingIf(int grade)
 {
 	string letterGrade;
 
