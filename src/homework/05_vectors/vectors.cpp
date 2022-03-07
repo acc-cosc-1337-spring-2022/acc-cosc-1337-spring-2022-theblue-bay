@@ -1,6 +1,6 @@
-#include "string"
+#include <string>
 #include "vectors.h"
-#include "algorithm"
+#include <algorithm>
 
 double getGcContent(const std::string &dna)
 {
@@ -23,7 +23,7 @@ std::string getReverseString(std::string dna)
     return dna;
 }
 
-std::string getDnaCompliment(const std::string  &dna)
+std::string getDnaComplement(const std::string  &dna)
 {
     std::string complement = "";
 
@@ -49,7 +49,7 @@ std::string getDnaCompliment(const std::string  &dna)
             }
         }
     }
-    return dna;
+    return complement;
 
 
     
