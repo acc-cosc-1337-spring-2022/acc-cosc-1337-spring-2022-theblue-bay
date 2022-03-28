@@ -26,7 +26,8 @@ void TicTacToe::setNextPlayer()
     if (player == "X") 
     {
         player = "O";
-    } else { 
+    } else 
+    { 
         player = "X";
     }
 }

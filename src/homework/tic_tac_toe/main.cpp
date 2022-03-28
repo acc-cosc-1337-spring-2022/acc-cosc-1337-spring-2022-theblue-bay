@@ -5,6 +5,7 @@ int main()
 {
 	TicTacToe game;
 	string firstPlayer;
+	
 	char choice;
 	int position;
 
