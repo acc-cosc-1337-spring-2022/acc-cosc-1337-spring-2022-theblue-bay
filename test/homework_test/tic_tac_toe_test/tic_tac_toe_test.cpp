@@ -38,4 +38,133 @@ TEST_CASE("Test game for if a tie occurs")
 
 	game.markBoard(8);
 	REQUIRE(true == game.gameOver());
+	REQUIRE(game.getWinner() == "C");
+}
+
+TEST_CASE("Test when first is set to X")
+{
+	TicTacToe game;
+
+	game.startGame("X");
+	REQUIRE(game.getPlayer() == "X");
+}
+
+TEST_CASE("Test when first is set to X")
+{
+	TicTacToe game;
+
+	game.startGame("O");
+	REQUIRE(game.getPlayer() == "O");
+}
+
+TEST_CASE("Test first column win")
+{
+	TicTacToe game;
+
+	game.startGame("X");
+	game.markBoard(7);
+	game.markBoard(2);
+	game.markBoard(4);
+	game.markBoard(3);
+	game.markBoard(1);
+	game.markBoard(8);
+	REQUIRE(game.gameOver() == true);
+}
+
+TEST_CASE("Test second column win") 
+{
+	TicTacToe game;
+
+	game.startGame("X");
+	game.markBoard(2);
+	game.markBoard(1);
+	game.markBoard(8);
+	game.markBoard(3);
+	game.markBoard(5);
+	game.markBoard(7);
+	REQUIRE(game.gameOver() == true);
+}
+
+TEST_CASE("Test third column win") 
+{
+	TicTacToe game;
+
+	game.startGame("X");
+	game.markBoard(3);
+	game.markBoard(2);
+	game.markBoard(6);
+	game.markBoard(3);
+	game.markBoard(9);
+	game.markBoard(1);
+	REQUIRE(game.gameOver() == true);
+}
+
+TEST_CASE("Test first row win") 
+{
+	TicTacToe game;
+
+	game.startGame("X");
+	game.markBoard(1);
+	game.markBoard(5);
+	game.markBoard(2);
+	game.markBoard(7);
+	game.markBoard(3);
+	game.markBoard(9);
+	REQUIRE(game.gameOver() == true);
+}
+
+TEST_CASE("Test second row win") 
+{
+	TicTacToe game;
+
+	game.startGame("X");
+	game.markBoard(4);
+	game.markBoard(2);
+	game.markBoard(5);
+	game.markBoard(3);
+	game.markBoard(6);
+	game.markBoard(1);
+	REQUIRE(game.gameOver() == true);
+}
+
+TEST_CASE("Test third row win") 
+{
+	TicTacToe game;
+
+	game.startGame("X");
+	game.markBoard(7);
+	game.markBoard(2);
+	game.markBoard(8);
+	game.markBoard(3);
+	game.markBoard(9);
+	game.markBoard(1);
+	REQUIRE(game.gameOver() == true);
+}
+
+TEST_CASE("Test diagonal top left win") 
+{
+	TicTacToe game;
+
+	game.startGame("X");
+	game.markBoard(1);
+	game.markBoard(2);
+	game.markboard(5);
+	game.markBoard(3);
+	game.markBoard(9);
+	game.markBoard(7);
+	REQUIRE(game.gameOver() == true);
+}
+
+TEST_CASE("Test diagonal bottom left win") 
+{
+	TicTacToe game;
+
+	game.startGame("X");
+	game.markBoard(7);
+	game.markBoard(2);
+	game.markBoard(5);
+	game.markBoard(1);
+	game.markBoard(3);
+	game.markBoard(9);
+	REQUIRE(game.gameOver() == true);
 }

@@ -7,15 +7,23 @@ int main()
 	string firstPlayer;
 	
 	char choice;
-	int position;
 
 	do {
 	cout << "First player, enter X or O ";
 	cin >> firstPlayer;
 
+	while (firstPLayer != "X" && firstPlayer != "O")
+	{
+		cout << "Entry must be either an X or an O \n";
+		cout << "First player, enter X or O ";
+		cin >> firstPlayer;
+	}
+	
 	game.startGame(firstPlayer);
+	int position;
 
-	while (game.gameOver() == false) {
+	while (game.gameOver() == false) 
+	{
 		cout << "Enter position 1 through 9";
 		cin >> position;
 
@@ -23,6 +31,7 @@ int main()
 		game.displayBoard();
 	}
 
+	cout << game.getWinner() << "is the winner! \n";
 	cout << "Continue? ";
 	cin >> choice;
 

@@ -11,24 +11,37 @@ class TicTacToe {
     public:
 
     bool gameOver();
-
+    
     void startGame(std::string firstPlayer);
 
-    void markBoard(int position);
-
-    std::string getPlayer() const {return player;};
+    void markBoard(int position);2
 
     void displayBoard() const;
 
+    std::string getPlayer() const {return player;};
+
+    std::string getWinner()
+
     private:
+
     std::string player;
 
     std::vector<std::string> pegs{9, " "};
+
+    std::string winner;
 
     void setNextPlayer();
 
     bool checkBoardFull();
 
     void clearBoard();
+
+    bool checkColumnWin();
+
+    bool checkRowWin();
+
+    bool checkDiagonalWin();
+
+    void setWinner();
 };
 #endif
