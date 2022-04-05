@@ -14,13 +14,13 @@ class TicTacToe {
     
     void startGame(std::string firstPlayer);
 
-    void markBoard(int position);2
+    void markBoard(int position);
 
     void displayBoard() const;
 
     std::string getPlayer() const {return player;};
 
-    std::string getWinner()
+    std::string getWinner();
 
     private:
 
