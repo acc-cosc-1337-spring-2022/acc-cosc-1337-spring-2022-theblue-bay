@@ -1,24 +1,18 @@
 #include "tic_tac_toe.h"
-using std::string, std::cout;
+using std::string, std::cout, std::cin;
 
 void TicTacToe::startGame(string firstPlayer) 
 {
     player = firstPlayer;
+    
     clearBoard();
 }
 
 void TicTacToe::markBoard(int position) 
 {
     pegs[position - 1] = player;
+    
     setNextPlayer();
-}
-
-void TicTacToe::displayBoard()const 
-{
-    for(int i = 0; i < 9; i+=3) 
-    {
-        cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "\n";
-    }
 }
 
 void TicTacToe::setNextPlayer() 
@@ -151,7 +145,7 @@ bool TicTacToe::checkDiagonalWin()
     }
 }
 
-void setWinner()
+void TicTacToe::setWinner()
 {
     if (player == "X")
     {
@@ -160,4 +154,31 @@ void setWinner()
     {
         winner = "X";
     }
+}
+
+std::istream& operator >> (std::istream& input, TicTacToe& game)
+{
+    int position;
+
+    cout << "Enter a position between 1 and 9: ";
+    input >> position;
+
+    while ((position < 1 || (position > 9))
+    {
+        cout << "Invalid input. Please enter a position between 1 and 9: ";
+        input >> position;
+    }
+
+    game.markBoard(position);
+    return input;
+}
+
+std::ostream& operator << (std::ostream output, const TicTacToe& game)
+{
+    for (int i = 0; i < 9; i += 3)
+    {
+        cout << game.pegs[i] << "|" << game.pegs[i + 1] << "|" << game.pegs[i + 2] << "\n";
+    }
+
+    return output;
 }

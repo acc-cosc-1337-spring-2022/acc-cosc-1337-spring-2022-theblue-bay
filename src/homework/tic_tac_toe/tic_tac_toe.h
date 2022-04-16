@@ -2,6 +2,8 @@
 #include <vector>
 #include <iostream>
 
+using std::cout;
+
 #ifndef TIC_TAC_TOE_H
 
 #define TIC_TAC_TOE_H
@@ -10,6 +12,10 @@ class TicTacToe {
 
     public:
 
+    std::string getPlayer() const {return player;};
+
+    std::string getWinner() {return winner;};
+    
     bool gameOver();
     
     void startGame(std::string firstPlayer);
@@ -18,9 +24,10 @@ class TicTacToe {
 
     void displayBoard() const;
 
-    std::string getPlayer() const {return player;};
+    friend std::istream& operator << (std::istream& input, TicTacToe& game);
 
-    std::string getWinner();
+    friend std::ostream& operator << (std::ostream& output, const TicTacToe& game);
+
 
     private:
 
