@@ -3,12 +3,13 @@
 
 void TicTacToeManager::updateWinnerCount(std::string winner)
 {
+
     if (winner == "x")
     {
-        xWins++;
+        xWin++;
     } else if (winner == "O")
     {
-        oWins++;
+        oWin++;
     } else
     {
         ties++;
@@ -17,8 +18,8 @@ void TicTacToeManager::updateWinnerCount(std::string winner)
 
 void TicTacToeManager::getWinnerTotals(int& o, int& x, int& t)
 {
-    x = xWins;
-    o = oWins;
+    x = xWin;
+    o = oWin;
     t = ties;
 
     cout << "X wins: " << x << "\n" << "O wins: " << o << "\n" << "Ties: " << t << "\n";
@@ -26,17 +27,17 @@ void TicTacToeManager::getWinnerTotals(int& o, int& x, int& t)
 
 void TicTacToeManager::saveGame(TicTacToe b)
 {
-    games.pushBack(b);
+    games.push_back(b);
     updateWinnerCount(b.getWinner());
 }
 
-std::ostream& operator << (std::ostream& output, TicTacToeManager& manager)
+std::ostream& operator << (std::ostream& output, const TicTacToeManager& manager)
 {
     cout << "     Match History     " << "\n";
 
-    for (auto i = 0; i Manager.games.size(); i++)
+    for (auto& games: manager.games)
     {
-        output << Manager.games[i] << "\n";
+        output << games << "\n";
     }
 
     return output;

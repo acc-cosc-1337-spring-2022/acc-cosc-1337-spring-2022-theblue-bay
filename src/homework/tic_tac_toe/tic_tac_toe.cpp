@@ -163,7 +163,7 @@ std::istream& operator >> (std::istream& input, TicTacToe& game)
     cout << "Enter a position between 1 and 9: ";
     input >> position;
 
-    while ((position < 1 || (position > 9))
+    while (position < 1 || position > 9)
     {
         cout << "Invalid input. Please enter a position between 1 and 9: ";
         input >> position;
@@ -173,7 +173,7 @@ std::istream& operator >> (std::istream& input, TicTacToe& game)
     return input;
 }
 
-std::ostream& operator << (std::ostream output, const TicTacToe& game)
+std::ostream& operator << (std::ostream& output, const TicTacToe& game)
 {
     for (int i = 0; i < 9; i += 3)
     {

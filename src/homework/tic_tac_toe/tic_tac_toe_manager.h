@@ -1,5 +1,8 @@
 #include "tic_tac_toe.h"
 
+#include <vector>
+#include <string>
+
 #ifndef TIC_TAC_TOE_MANAGER_H
 #define TIC_TAC_TOE_MANAGER_H
 
@@ -12,13 +15,13 @@ class TicTacToeManager
         friend std::ostream& operator << (std::ostream& output, const TicTacToeManager& manager);
 
     private:
-        vector<TicTacToe> games;
+        std::vector <TicTacToe> games;
 
         int xWin = 0;
         int oWin = 0;
         int ties = 0;
 
-        void updateWinnerCount(string winner);
+        void updateWinnerCount(std::string winner);
 };
 
 #endif

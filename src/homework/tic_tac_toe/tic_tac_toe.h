@@ -28,12 +28,11 @@ class TicTacToe {
 
     friend std::ostream& operator << (std::ostream& output, const TicTacToe& game);
 
-
     private:
 
-    std::string player;
+    std::vector<std::string> pegs;
 
-    std::vector<std::string> pegs{9, " "};
+    std::string player;
 
     std::string winner;
 
@@ -51,4 +50,5 @@ class TicTacToe {
 
     void setWinner();
 };
+
 #endif
