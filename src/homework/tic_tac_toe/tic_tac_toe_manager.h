@@ -2,20 +2,24 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
 #ifndef TIC_TAC_TOE_MANAGER_H
+
 #define TIC_TAC_TOE_MANAGER_H
+
 
 class TicTacToeManager
 {
     public:
         void getWinnerTotals(int& x, int& o, int& t);
-        void saveGame(TicTacToe b);
+        
+        void saveGame(std::unique_ptr<TicTacToe>& b);
 
         friend std::ostream& operator << (std::ostream& output, const TicTacToeManager& manager);
 
     private:
-        std::vector <TicTacToe> games;
+        std::vector <std::unique_ptr<TicTacToe>> games;
 
         int xWin = 0;
         int oWin = 0;

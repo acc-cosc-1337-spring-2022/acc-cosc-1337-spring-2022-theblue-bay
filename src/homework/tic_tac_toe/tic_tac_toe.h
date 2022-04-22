@@ -1,8 +1,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
-
-using std::cout;
+#include <memory>
 
 #ifndef TIC_TAC_TOE_H
 
@@ -10,7 +9,14 @@ using std::cout;
 
 class TicTacToe {
 
+    friend std::istream& operator >> (std::istream& input, TicTacToe& game);
+
+    friend std::ostream& operator << (std::ostream& output, const TicTacToe& game);
+
+
     public:
+
+    TicTacToe(int size): pegs(size * size, " ") {};
 
     std::string getPlayer() const {return player;};
 
@@ -22,15 +28,19 @@ class TicTacToe {
 
     void markBoard(int position);
 
-    void displayBoard() const;
 
-    friend std::istream& operator << (std::istream& input, TicTacToe& game);
+    protected:
 
-    friend std::ostream& operator << (std::ostream& output, const TicTacToe& game);
+    std::vector <std::string> pegs;
+
+    virtual bool checkColumnWin();
+
+    virtual bool checkRowWin();
+
+    virtual bool checkDiagonalWin();
+
 
     private:
-
-    std::vector<std::string> pegs;
 
     std::string player;
 
@@ -41,12 +51,6 @@ class TicTacToe {
     bool checkBoardFull();
 
     void clearBoard();
-
-    bool checkColumnWin();
-
-    bool checkRowWin();
-
-    bool checkDiagonalWin();
 
     void setWinner();
 };
