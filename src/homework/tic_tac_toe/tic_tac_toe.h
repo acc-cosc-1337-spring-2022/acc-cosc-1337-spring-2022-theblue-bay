@@ -18,10 +18,14 @@ class TicTacToe {
 
     TicTacToe(int size): pegs(size * size, " ") {};
 
+    TicTacToe (std::vector<std::string> p, std::string win) : pegs(p), winner(win){}
+
     std::string getPlayer() const {return player;};
 
     std::string getWinner() {return winner;};
-    
+
+    std::vector<std::string> getPegs()const{return pegs;}
+
     bool gameOver();
     
     void startGame(std::string firstPlayer);

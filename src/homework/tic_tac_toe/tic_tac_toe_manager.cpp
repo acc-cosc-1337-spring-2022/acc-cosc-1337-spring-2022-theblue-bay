@@ -43,3 +43,20 @@ std::ostream& operator << (std::ostream& output, const TicTacToeManager& manager
 
     return output;
 }
+
+TicTacToeManager::TicTacToeManager(TicTacToeData& d): data(d)
+{
+    games = data.getGames();
+
+    for (auto& game: games)
+    {
+        updateWinnerCount(game -> getWinner());
+    }
+}
+
+TicTacToeManager::~TicTacToeManager()
+{
+    std::cout << "\n Saving all matches" << std::endl;
+    data.saveGames(games);
+}
+

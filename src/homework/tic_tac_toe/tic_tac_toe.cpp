@@ -1,5 +1,8 @@
 #include "tic_tac_toe.h"
-using std::string, std::cout, std::cin;
+
+using std::string;
+using std::cout;
+using std::cin;
 
 void TicTacToe::startGame(string firstPlayer) 
 {

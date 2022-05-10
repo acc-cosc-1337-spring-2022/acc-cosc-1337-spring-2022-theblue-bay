@@ -12,8 +12,10 @@ using std::cout;
 int main() 
 {
 	std::unique_ptr<TicTacToe> game;
-	TicTacToeManager manager;
-
+	
+	TicTacToeData data;
+	TicTacToeManager manager(data);
+	
 	std::string firstPlayer;
 
 	int oWins, xWins, ties;
